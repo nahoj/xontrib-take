@@ -1,5 +1,3 @@
-#!/fake/python
-
 """
 Make and cd into a dir, or fetch and cd into a git repo or archive file. A port of Oh My Zsh's take command to Xonsh.
 """
