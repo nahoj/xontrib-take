@@ -1,0 +1,91 @@
+
+[project]
+name = "xontrib-take"
+version = "1.0.0+git"
+license = {file = "LICENSE"}
+description = "Make and cd into a dir, or fetch and cd into a git repo or archive file. A port of Oh My Zsh's take command to Xonsh."
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: System :: Shells",
+    "Topic :: System :: System Shells",
+    "Topic :: Terminals",
+]
+requires-python = ">=3.8"
+dependencies = ["xonsh>=0.12.5"]
+authors = [
+    { name = "Johan Grande", email = "nahoj+git@crans.org" },
+]
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+
+
+
+
+[project.urls]
+
+Homepage = "https://github.com/nahoj/xontrib-take"
+Documentation = "https://github.com/nahoj/xontrib-take/blob/master/README.md"
+Code = "https://github.com/nahoj/xontrib-take"
+"Issue tracker" = "https://github.com/nahoj/xontrib-take/issues"
+
+
+
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+
+
+[build-system]
+requires = [
+    "setuptools>=62",
+    "wheel",               # for bdist package distribution
+]
+build-backend = "setuptools.build_meta"
+[tool.setuptools]
+    
+packages = ["xontrib"]
+package-dir = {xontrib = "xontrib"}
+    
+platforms = ["any"]
+include-package-data = false
+[tool.setuptools.package-data]
+    
+xontrib = ["*.xsh"]
+    
+
+
+[tool.black]
+include = '\.pyi?$'
+force-exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.pytest_cache
+  | \.tox
+  | \.vscode
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | disk-cache.sqlite3
+)/
+'''
+
+[tool.ruff]
+select = [
+    "E",
+    "F",
+    "B", # flake8-bugbear
+    "I", # isort
+    "UP", # pyupgrade
+    "SIM", # simplify
+    "TCH", # flake8-type-checking
+    "RUF", # ruff specific rules
+]
