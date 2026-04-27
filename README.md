@@ -18,19 +18,38 @@ xpip install -U git+https://github.com/nahoj/xontrib-take
 
 ## Usage
 
-
 ```xsh
 xontrib load take
+take path/to/new/dir
+take https://some.example/git/or?archive=url
 ```
-
 
 ## Examples
 
-...
-
-## Known issues
-
-...
+```xsh
+~/test @ ls
+~/test @ take foo
+~/test/foo @
+~/test/foo @ take https://github.com/nahoj/xontrib-take.git
+Clonage dans 'xontrib-take'...
+remote: Enumerating objects: 83, done.
+remote: Counting objects: 100% (83/83), done.
+remote: Compressing objects: 100% (50/50), done.
+remote: Total 83 (delta 42), reused 64 (delta 25), pack-reused 0 (from 0)
+Réception d'objets: 100% (83/83), 14.38 Kio | 1.44 Mio/s, fait.
+Résolution des deltas: 100% (42/42), fait.
+…/xontrib-take main @ popd
+~/test/foo @
+~/test/foo @ take https://github.com/nahoj/xontrib-take/archive/refs/heads/main.zip
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 11842    0 11842    0     0  25590      0 --:--:-- --:--:-- --:--:-- 25590
+Archive:  /tmp/tmp.n2rudhhtF0
+   creating: ./xontrib-take-main/
+# ...
+~/test/foo/xontrib-take-main @
+```
 
 ## Development
 
