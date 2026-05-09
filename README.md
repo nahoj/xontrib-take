@@ -1,54 +1,49 @@
-<p align="center">
-A single command to create and cd into a dir, or into a fetched git repo or archive file. A port of Oh My Zsh's take command to Xonsh.
-</p>
+<div align="center">
+A single Xonsh command to create and cd into a directory, or into a fetched git repo or archive file. A port of Oh My Zsh's take command.
 
-<p align="center">
+I reckon [the source](https://github.com/nahoj/xontrib-take/blob/main/xontrib/take.xsh) is a good showcase of mixing Python and shell commands in Xonsh.
+
+**Status:** It works. Issues and PRs for additional features are welcome!
+
 If you like the idea click ⭐ on the repo and <a href="https://twitter.com/intent/tweet?text=Nice%20xontrib%20for%20the%20xonsh%20shell!&url=https://github.com/nahoj/xontrib-take" target="_blank">tweet</a>.
-</p>
-
+</div>
 
 ## Installation
 
-To install use pip:
+I haven't uploaded this to PyPi, I will if anyone expresses interest.
 
 ```xsh
-# xpip install xontrib-take  # not yet on pypi
 xpip install -U git+https://github.com/nahoj/xontrib-take
 ```
 
-## Usage
+Then:
 
 ```xsh
 xontrib load take
-take path/to/new/dir
-take https://some.example/git/or?archive=url
 ```
 
 ## Examples
 
 ```xsh
 ~/test @ ls
-~/test @ take foo
-~/test/foo @
-~/test/foo @ take https://github.com/nahoj/xontrib-take.git
+~/test @ take foo/bar
+~/test/foo/bar @
+```
+
+```xsh
+~/test @ take https://github.com/nahoj/xontrib-take.git
 Clonage dans 'xontrib-take'...
-remote: Enumerating objects: 83, done.
-remote: Counting objects: 100% (83/83), done.
-remote: Compressing objects: 100% (50/50), done.
-remote: Total 83 (delta 42), reused 64 (delta 25), pack-reused 0 (from 0)
-Réception d'objets: 100% (83/83), 14.38 Kio | 1.44 Mio/s, fait.
-Résolution des deltas: 100% (42/42), fait.
-…/xontrib-take main @ popd
-~/test/foo @
-~/test/foo @ take https://github.com/nahoj/xontrib-take/archive/refs/heads/main.zip
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100 11842    0 11842    0     0  25590      0 --:--:-- --:--:-- --:--:-- 25590
+...
+…/xontrib-take main @
+```
+
+```xsh
+~/test @ take https://github.com/nahoj/xontrib-take/archive/refs/heads/main.zip
+...
 Archive:  /tmp/tmp.n2rudhhtF0
    creating: ./xontrib-take-main/
-# ...
-~/test/foo/xontrib-take-main @
+...
+~/test/xontrib-take-main @
 ```
 
 ## Development
@@ -76,8 +71,6 @@ This package was created with [xontrib template](https://github.com/xonsh/xontri
 --------------------
 
 ## Xontrib Promotion (DO and REMOVE THIS SECTION)
-
-* Add xontrib to the [awesome-xontribs](https://github.com/xonsh/awesome-xontribs).
 
 * Publish your xontrib to PyPi via Github Actions and users can install your xontrib via `xpip install xontrib-myxontrib`. Easiest way to achieve it is to use Github Actions. Register to https://pypi.org/ and [create API token](https://pypi.org/help/#apitoken). Go to repository "Settings" - "Secrets" and your PyPI API token as `PYPI_API_TOKEN` as a "Repository Secret". Now when you create new Release the Github Actions will publish the xontrib to PyPi automatically. Release status will be in Actions sction. See also `.github/workflows/release.yml`.
 
