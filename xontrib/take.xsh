@@ -19,7 +19,7 @@ def _archive_root(name: str) -> str | None:
     return cleaned or None
 
 
-def mkcd(args):
+def mkcd(args: list[str]):
     if not args:
         return 1
     paths = [str(Path(arg).expanduser()) for arg in args]
@@ -28,7 +28,7 @@ def mkcd(args):
     return 0
 
 
-def takeurl(args):
+def takeurl(args: list[str]):
     if not args:
         return 1
     data = $(mktemp).strip()
@@ -41,7 +41,7 @@ def takeurl(args):
     return 0
 
 
-def takezip(args):
+def takezip(args: list[str]):
     if not args:
         return 1
     data = $(mktemp).strip()
@@ -54,7 +54,7 @@ def takezip(args):
     return 0
 
 
-def takegit(args):
+def takegit(args: list[str]):
     if not args:
         return 1
     url = args[0]
@@ -63,7 +63,7 @@ def takegit(args):
     return 0
 
 
-def take(args):
+def take(args: list[str]):
     if not args:
         return 1
     target = args[0]
